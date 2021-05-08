@@ -1,0 +1,34 @@
+[package]
+name = "light-bitcoin-keys"
+version = "0.2.0"
+authors = ["The ChainX Authors"]
+edition = "2018"
+license = "GPL-3.0"
+
+[features]
+default = ["std"]
+std = [
+  "bs58/std",
+  "codec/std",
+  "hex/std",
+  "libsecp256k1/std",
+  "serde",
+
+  "light-bitcoin-crypto/std",
+  "light-bitcoin-primitives/std",
+  "light-bitcoin-serialization/std",
+]
+
+[dependencies]
+bs58 = { version = "0.4", default-features = false, features = ["alloc"] }
+codec = { package = "parity-scale-codec", version = "2.0.0",  default-features = false, features = ["derive"] }
+hex = { version = "0.4", default-features = false }
+libsecp256k1 = { version = "0.3.5", default-features = false, features = ["hmac"] }
+serde = { version = "1.0", features = ["derive"], optional = true }
+
+light-bitcoin-crypto = { path = "../crypto", default-features = false }
+light-bitcoin-primitives = { path = "../primitives", default-features = false }
+light-bitcoin-serialization = { path = "../serialization", default-features = false, features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1.0"

@@ -1,0 +1,15 @@
+[package]
+name = "light-bitcoin-serialization"
+version = "0.2.0"
+authors = ["The ChainX Authors"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+light-bitcoin-primitives = { path = "../primitives", default-features = false }
+light-bitcoin-serialization-derive = { path = "../serialization-derive", optional = true }
+
+[features]
+default = ["std"]
+std = ["light-bitcoin-primitives/std"]
+derive = ["light-bitcoin-serialization-derive"]
